@@ -9,6 +9,8 @@ version = '1.0.0'
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -23,6 +25,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    jvmArgs '-Dfile.encoding=UTF-8'
+    testLogging { events 'passed', 'skipped', 'failed' }
 }
 
 publishing {
